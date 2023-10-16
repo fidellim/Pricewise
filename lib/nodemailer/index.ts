@@ -99,7 +99,8 @@ export const sendEmail = async (emailContent: EmailContent, sendTo: string[]) =>
     subject: emailContent.subject,
   }
 
-  await transporter.sendMail(mailOptions)
+  const res = await transporter.sendMail(mailOptions)
+  return res;
 //   await transporter.sendMail(mailOptions, (error: any, info: any) => {
 //     if(error) return console.log(error);
     
