@@ -66,7 +66,8 @@ export async function GET(request: Request) {
           const userEmails = updatedProduct.users.map((user: any) => user.email);
           // Send email notification
           console.log(userEmails)
-          await sendEmail(emailContent, userEmails);
+          const res = await sendEmail(emailContent, userEmails);
+          console.log(res)
         }
 
         return updatedProduct;
