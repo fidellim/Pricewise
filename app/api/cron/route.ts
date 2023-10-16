@@ -54,7 +54,7 @@ export async function GET(request: Request) {
           scrapedProduct,
           currentProduct
         );
-
+        console.log(emailNotifType, updatedProduct.users.length)
         if (emailNotifType && updatedProduct.users.length > 0) {
           const productInfo = {
             title: updatedProduct.title,
@@ -65,6 +65,7 @@ export async function GET(request: Request) {
           // Get array of user emails
           const userEmails = updatedProduct.users.map((user: any) => user.email);
           // Send email notification
+          console.log(userEmails)
           await sendEmail(emailContent, userEmails);
         }
 
